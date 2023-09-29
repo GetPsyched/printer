@@ -1,0 +1,43 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1695644571,
+        "narHash": "sha256-asS9dCCdlt1lPq0DLwkVBbVoEKuEuz+Zi3DG7pR/RxA=",
+        "path": "/nix/store/i6hq63805y784dml4j8pgkrz3lryxzld-source",
+        "rev": "6500b4580c2a1f3d0f980d32d285739d8e156d92",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "svelte-env": "svelte-env"
+      }
+    },
+    "svelte-env": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "narHash": "sha256-Mskq7z7ZFn6Sd4glV3VPSimeIugTQW6VmIdZpjjtXh0=",
+        "rev": "0233fee5fd77709aa8efd2366b9b614b4d9bb6ec",
+        "revCount": 22,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/GetPsyched/svelte-env/0.2.1/018aa30e-8ed4-7d68-8994-b767c0955ab1/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/GetPsyched/svelte-env/0.x.x.tar.gz"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
