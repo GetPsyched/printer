@@ -1,0 +1,20 @@
+:root {
+  --fg: #000;
+  --fg-dark: #000;
+  --fg-light: #666666;
+  --pr: #000;
+  --link: #5271ff;
+  --fsz-normal: 10pt;
+  --fsz-title: 24pt;
+  --fsz-h1: 16pt;
+  --fsz-h2: 12pt;
+  --fsz-h3: 10pt;
+}
+
+body {
+  margin: 0;
+}
+
+a[href] {
+  color: var(--link);
+}
