@@ -9,7 +9,7 @@ build PRESET:
     export URL=http://127.0.0.1:$PORT
 
     mkdir -p dist
-    nix eval -f ./data --raw > dist/data.js
+    nix eval -f ./data --raw > data/data.js
     echo "JSON file generated successfully!"
 
     bunx --bun vite build --ssr --log-level error
@@ -26,4 +26,4 @@ build PRESET:
 
 # HMR for building the PDF
 watch PRESET:
-    watchexec --clear --restart 'just build {{PRESET}}'
+    watchexec --clear --restart --ignore data/data.js 'just build {{PRESET}}'
