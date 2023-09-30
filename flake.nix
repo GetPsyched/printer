@@ -16,11 +16,12 @@
     in
     {
       devShells.${system}.default = pkgs.mkShell {
-        buildInputs = with pkgs; [
+        nativeBuildInputs = with pkgs; [
           svelte-env-pkgs.default
           svelte-env-pkgs.vscode
 
           busybox
+          corefonts
           just
           princexml
           watchexec
