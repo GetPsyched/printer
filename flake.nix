@@ -9,7 +9,12 @@
   outputs = inputs@{ nixpkgs, svelte-env, ... }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+          "corefonts"
+        ];
+      };
       svelte-env-pkgs = svelte-env.outputs.packages.${system};
 
       princexml = pkgs.callPackage ./princexml.nix { };
