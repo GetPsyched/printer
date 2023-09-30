@@ -23,4 +23,4 @@ TODO
 
 ## Acknowledgements
 
-Thanks to @maan2003 for sharing his experience with building PDFs out of plaintext which helped kick-start this project!
+Thanks to [@maan2003](https://github.com/maan2003) for sharing his experience with building PDFs out of plaintext which helped kick-start this project!
