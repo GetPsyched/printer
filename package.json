@@ -1,6 +1,9 @@
 {
   "name": "printer",
   "version": "0.0.1",
+  "dependencies": {
+    "@types/node": "^20.7.2"
+  },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.4.6",
     "@tsconfig/svelte": "^5.0.2",
