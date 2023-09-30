@@ -14,7 +14,12 @@
     in
     {
       devShells.${system}.default = pkgs.mkShell {
-        buildInputs = with svelte-env-pkgs; [ default vscode ];
+        buildInputs = with pkgs; [
+          svelte-env-pkgs.default
+          svelte-env-pkgs.vscode
+
+          just
+        ];
       };
     };
 }
