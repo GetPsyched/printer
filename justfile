@@ -3,7 +3,7 @@ default:
     @just --list --unsorted
 
 # build the PDF to `dist/output.pdf`
-build:
+build PRESET:
     #!/bin/sh -e
     export PORT=32212
     export URL=http://127.0.0.1:$PORT
@@ -13,7 +13,7 @@ build:
     echo "JSON file generated successfully!"
 
     bunx --bun vite build --ssr --log-level error
-    (cd dist && bun ssr.js)
+    (cd dist && bun ssr.js {{PRESET}})
     echo "Distributable files generated successfully!"
 
     echo "Launching server at $URL"
@@ -25,5 +25,5 @@ build:
     pkill busybox
 
 # HMR for building the PDF
-watch:
-    watchexec --clear --restart 'just build'
+watch PRESET:
+    watchexec --clear --restart 'just build {{PRESET}}'
