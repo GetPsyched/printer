@@ -11,6 +11,8 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       svelte-env-pkgs = svelte-env.outputs.packages.${system};
+
+      princexml = pkgs.callPackage ./princexml.nix { };
     in
     {
       devShells.${system}.default = pkgs.mkShell {
@@ -18,7 +20,10 @@
           svelte-env-pkgs.default
           svelte-env-pkgs.vscode
 
+          busybox
           just
+          princexml
+          watchexec
         ];
       };
     };
