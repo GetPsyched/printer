@@ -1,5 +1,5 @@
 <script lang="ts">
-  import data from '../../../dist/resume-data.json';
+  import data from '../../../dist/data.json';
 
   import Header from '../../lib/header.svelte';
   import Skills from './skills.svelte';

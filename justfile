@@ -18,7 +18,7 @@ build PRESET:
     fi
 
     mkdir -p dist
-    nix eval --json --file $DATAFILE > dist/{{PRESET}}-data.json
+    nix eval --json --file $DATAFILE > dist/data.json
     echo "JSON file generated successfully!"
 
     if [ $USE_TAILWINDCSS ]; then
