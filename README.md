@@ -13,7 +13,8 @@ A printer that eats Nix/JSON, poops out HTML, and births a PDF.
 
 1. Clone this repository.
 2. Run `nix develop` within this project's directory to install its dependencies.
-3. Run `just` to see the available command options.
+3. Rename `src/routes/*/data.nix.example` to `src/routes/*/data.nix` and populate it with your details.
+4. Run `just` to see the available command options.
    - `build <preset>`: Build the PDF choosing a preset (will likely have nested presets in the future)
    - `watch <preset>`: Watch the build. As you change files the PDF will regenerate automatically.
 

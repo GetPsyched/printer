@@ -7,9 +7,18 @@ build PRESET:
     #!/bin/sh -e
     PORT=32212
     URL=http://127.0.0.1:$PORT
+    DATAFILE=./src/routes/{{PRESET}}/data.nix
+
+    WARNING='\e[0;33mwarning\e[0;37m'
+    ERROR='\e[0;31merror\e[0;37m'
+
+    if [ ! -f $DATAFILE ]; then
+        export DATAFILE=$DATAFILE.example
+        echo -e "${WARNING}: 'data.nix' not found! Using 'data.nix.example'"
+    fi
 
     mkdir -p dist
-    nix eval -f ./data --raw > data/data.js
+    nix eval --json --file $DATAFILE > dist/{{PRESET}}-data.json
     echo "JSON file generated successfully!"
 
     bunx --bun vite build --ssr --log-level error
@@ -26,4 +35,4 @@ build PRESET:
 
 # HMR for building the PDF
 watch PRESET:
-    watchexec --clear --restart --ignore data/data.js 'just build {{PRESET}}'
+    watchexec --clear --restart 'just build {{PRESET}}'

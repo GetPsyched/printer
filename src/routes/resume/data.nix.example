@@ -1,0 +1,127 @@
+{
+  personal = {
+    name = "Name";
+    socials = [
+      {
+        name = "phone";
+        display = "+123 45678 90123";
+      }
+      {
+        name = "email";
+        display = "foo@bar.tld";
+        link = "mailto:foo@bar.tld";
+      }
+      {
+        name = "github";
+        display = "foo";
+        link = "https://github.com/foo";
+      }
+      {
+        name = "linkedin";
+        display = "foo";
+        link = "https://linkedin.com/in/foo";
+      }
+      {
+        name = "address";
+        display = "123, foo, bar";
+      }
+    ];
+  };
+  education = [
+    {
+      course = "Foo Engineering";
+      duration = "MMM YYYY - MMM YYYY";
+      school = "Foo, Bar";
+      score = "100%";
+    }
+    {
+      course = "Foo Medical";
+      duration = "MMM YYYY - MMM YYYY";
+      school = "Foo, Bar";
+      score = "100%";
+    }
+  ];
+  skill_groups = [
+    {
+      group = "Programming Languages";
+      skills = [ "foo" "bar" ];
+    }
+    {
+      group = "Other";
+      skills = [ "foo" "bar" ];
+    }
+    { group = "Languages"; skills = [ "foo" "bar" ]; }
+    {
+      group = "hidden";
+      skills = [ "foo" "bar" ];
+    }
+  ];
+  work_exp = [
+    {
+      title = "Title";
+      link = "https://foo.bar";
+      duration = "MMM YYYY - MMM YYYY";
+      details = ''
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      '';
+    }
+    {
+      title = "Title";
+      link = "https://foo.bar";
+      duration = "MMM YYYY - MMM YYYY";
+      details = ''
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      '';
+    }
+  ];
+  projects = [
+    {
+      title = "Title";
+      summary = "Foo bar";
+      link = "https://foo.bar";
+      details = ''
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      '';
+    }
+    {
+      title = "Title";
+      summary = "Foo bar";
+      link = "https://foo.bar";
+      details = ''
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      '';
+    }
+    {
+      title = "Title";
+      summary = "Foo bar";
+      link = "https://foo.bar";
+      details = ''
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      '';
+    }
+  ];
+  achievements = [
+    {
+      title = "Title";
+      details = "Lorem Ipsum.";
+    }
+    {
+      title = "Title";
+      details = "Lorem Ipsum.";
+    }
+    {
+      title = "Title";
+      details = "Lorem Ipsum.";
+    }
+  ];
+}
