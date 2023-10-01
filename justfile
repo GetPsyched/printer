@@ -5,8 +5,8 @@ default:
 # build the PDF to `dist/output.pdf`
 build PRESET:
     #!/bin/sh -e
-    export PORT=32212
-    export URL=http://127.0.0.1:$PORT
+    PORT=32212
+    URL=http://127.0.0.1:$PORT
 
     mkdir -p dist
     nix eval -f ./data --raw > data/data.js
