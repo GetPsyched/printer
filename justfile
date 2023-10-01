@@ -35,4 +35,4 @@ build PRESET:
 
 # HMR for building the PDF
 watch PRESET:
-    watchexec --clear --restart 'just build {{PRESET}}'
+    watchexec --clear --restart --watch src --no-vcs-ignore 'just build {{PRESET}}'
