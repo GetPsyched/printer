@@ -17,6 +17,7 @@ A printer that eats Nix/JSON, poops out HTML, and births a PDF.
 4. Run `just` to see the available command options.
    - `build <preset>`: Build the PDF choosing a preset (will likely have nested presets in the future)
    - `watch <preset>`: Watch the build. As you change files the PDF will regenerate automatically.
+5. View your generated PDF in `dist/output.pdf`.
 
 ## Project Structure
 
