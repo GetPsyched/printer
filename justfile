@@ -21,13 +21,18 @@ build PRESET:
     nix eval --json --file $DATAFILE > dist/{{PRESET}}-data.json
     echo "JSON file generated successfully!"
 
+    if [ $USE_TAILWINDCSS ]; then
+        bunx tailwindcss -i ./src/app.css -o ./dist/tailwind.css
+        echo "TailwindCSS generated successfully!"
+    fi
+
     bunx --bun vite build --ssr --log-level error
     (cd dist && bun ssr.js {{PRESET}})
     echo "Distributable files generated successfully!"
 
     echo "Launching server at $URL"
     busybox httpd -p $PORT -f -h dist &
-    prince $URL --page-margin=0 --page-size=letter -o 'dist/output.pdf'
+    prince $URL --page-margin=0 --page-size=letter -o 'dist/output.pdf' --no-warn-css
     echo "PDF generated successfully!"
 
     echo "Killing busybox httpd server"
