@@ -1,28 +1,39 @@
 <script lang="ts">
-  import data from '../../../dist/data.json';
+  export let questionPaper: {
+    title: string;
+    subtitle: string;
+    date: { day: number; month: string; year: number };
+    programme: string;
+    course: { name: string; code: string };
+    semester: number;
+    pages: number;
+    time: string;
+    marks: number;
+  };
 
+  const dateObject = questionPaper.date;
   const date =
-    (data.date.day ? `${data.date.day} ` : null) +
-    `${data.date.month}, ${data.date.year}`;
+    (dateObject.day ? `${dateObject.day} ` : null) +
+    `${dateObject.month}, ${dateObject.year}`;
 </script>
 
 <table class="w-full">
   <tbody class="p-4 w-full">
     <tr>
       <td><strong>Date:</strong> {date}</td>
-      <td><strong>Semester:</strong> {data.semester}</td>
+      <td><strong>Semester:</strong> {questionPaper.semester}</td>
     </tr>
     <tr>
-      <td><strong>Programme:</strong> {data.programme}</td>
-      <td><strong>Number of Pages:</strong> {data.pages}</td>
+      <td><strong>Programme:</strong> {questionPaper.programme}</td>
+      <td><strong>Number of Pages:</strong> {questionPaper.pages}</td>
     </tr>
     <tr>
-      <td><strong>Course Name:</strong> {data.course.name}</td>
-      <td><strong>Time Allowed:</strong> {data.time}</td>
+      <td><strong>Course Name:</strong> {questionPaper.course.name}</td>
+      <td><strong>Time Allowed:</strong> {questionPaper.time}</td>
     </tr>
     <tr>
-      <td><strong>Course Code:</strong> {data.course.code}</td>
-      <td><strong>Maximum Marks:</strong> {data['total-marks']}</td>
+      <td><strong>Course Code:</strong> {questionPaper.course.code}</td>
+      <td><strong>Maximum Marks:</strong> {questionPaper.marks}</td>
     </tr>
   </tbody>
 </table>
