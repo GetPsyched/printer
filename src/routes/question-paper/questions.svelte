@@ -3,7 +3,7 @@
 
   export let questions: Array<{
     contents: Array<{ text: string; image: string; prompt: string }>;
-    marks: number;
+    marks: string | number;
   }>;
 </script>
 

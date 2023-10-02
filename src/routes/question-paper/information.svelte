@@ -10,8 +10,15 @@
     time: string;
     questions: Array<{
       contents: Array<{ text: string; image: string; prompt: string }>;
-      marks: number;
+      marks: string | number;
     }>;
+  };
+
+  const evalMarks = (marksString: string) => {
+    const marksArray = marksString.split('+');
+    return marksArray
+      .map((marks) => Number(marks.trim()))
+      .reduce((accumulator, marks) => accumulator + marks);
   };
 
   const dateObject = questionPaper.date;
@@ -39,7 +46,8 @@
       <td>
         <strong>Maximum Marks:</strong>
         {questionPaper.questions.reduce(
-          (accumulator, { marks }) => accumulator + marks,
+          (accumulator, { marks }) =>
+            accumulator + (typeof marks == 'string' ? evalMarks(marks) : marks),
           0
         )}
       </td>
