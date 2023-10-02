@@ -13,7 +13,7 @@
 
   const dateObject = questionPaper.date;
   const date =
-    (dateObject.day ? `${dateObject.day} ` : null) +
+    (dateObject.day ? `${dateObject.day} ` : '') +
     `${dateObject.month}, ${dateObject.year}`;
 </script>
 
