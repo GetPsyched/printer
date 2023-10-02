@@ -32,7 +32,7 @@ build PRESET:
 
     echo "Launching server at $URL"
     busybox httpd -p $PORT -f -h dist &
-    prince $URL --page-margin=0 --page-size=letter -o 'dist/output.pdf' --no-warn-css
+    prince $URL --page-margin=20mm --page-size=letter -o 'dist/output.pdf' --no-warn-css
     echo "PDF generated successfully!"
 
     echo "Killing busybox httpd server"
