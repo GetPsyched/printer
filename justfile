@@ -6,7 +6,7 @@ default:
 build PRESET:
     #!/bin/sh -e
     PORT=32212
-    URL=http://127.0.0.1:$PORT
+    URL=http://localhost:$PORT
     DATAFILE=./src/routes/{{PRESET}}/data.nix
 
     WARNING='\e[0;33mwarning\e[0;37m'

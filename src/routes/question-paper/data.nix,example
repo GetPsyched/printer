@@ -18,6 +18,7 @@
       contents = [{
         text = "Write the code to access an audio and a video resource file in multimedia handling in Android Studio.";
         prompt = "Assume file location / directory as per requirement";
+        image = "https://i.imgur.com/MsAiLbL.png";
       }];
       marks = 2;
     }

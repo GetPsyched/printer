@@ -22,6 +22,17 @@
 
             <Markdown source={content.text} />
 
+            {#if content.image}
+              <br />
+              <img
+                class="mx-auto"
+                height="384"
+                width="384"
+                src={content.image}
+              />
+              <br />
+            {/if}
+
             {#if content.prompt}
               <p class="text-right">[ {content.prompt} ]</p>
             {/if}
