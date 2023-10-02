@@ -1,5 +1,5 @@
 <script lang="ts">
-  import data from '../../../dist/data.json';
+  import { title, subtitle, questions } from '../../../dist/data.json';
 
   import Information from './information.svelte';
   import Questions from './questions.svelte';
@@ -7,8 +7,8 @@
 
 <main class="box-border flex flex-col max-w-[8.5in]">
   <hgroup>
-    <h1 class="font-bold text-center text-md">{data.title}</h1>
-    <p class="font-bold text-center text-md">{data.subtitle}</p>
+    <h1 class="font-bold text-center text-md">{title}</h1>
+    <p class="font-bold text-center text-md">{subtitle}</p>
   </hgroup>
 
   <br />
@@ -16,5 +16,5 @@
   <br />
 
   <br />
-  <Questions questions={data.questions} />
+  <Questions {questions} />
 </main>
