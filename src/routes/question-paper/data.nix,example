@@ -12,7 +12,6 @@
   course.name = "Mobile Application Development";
   course.code = "CSPE35";
   time = "50 minutes";
-  total-marks = 15;
   questions = [
     {
       contents = [{

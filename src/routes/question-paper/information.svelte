@@ -8,7 +8,10 @@
     semester: number;
     pages: number;
     time: string;
-    marks: number;
+    questions: Array<{
+      contents: Array<{ text: string; image: string; prompt: string }>;
+      marks: number;
+    }>;
   };
 
   const dateObject = questionPaper.date;
@@ -33,7 +36,13 @@
     </tr>
     <tr>
       <td><strong>Course Code:</strong> {questionPaper.course.code}</td>
-      <td><strong>Maximum Marks:</strong> {questionPaper.marks}</td>
+      <td>
+        <strong>Maximum Marks:</strong>
+        {questionPaper.questions.reduce(
+          (accumulator, { marks }) => accumulator + marks,
+          0
+        )}
+      </td>
     </tr>
   </tbody>
 </table>
