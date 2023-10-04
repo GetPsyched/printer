@@ -5,8 +5,6 @@ default:
 # build the PDF to `dist/output.pdf`
 build PRESET:
     #!/bin/sh -e
-    PORT=32212
-    URL=http://localhost:$PORT
     DATAFILE=./src/routes/{{PRESET}}/data.nix
 
     WARNING='\e[0;33mwarning\e[0;37m'
@@ -30,13 +28,8 @@ build PRESET:
     (cd dist && bun ssr.js {{PRESET}})
     echo "Distributable files generated successfully!"
 
-    echo "Launching server at $URL"
-    busybox httpd -p $PORT -f -h dist &
-    prince $URL --page-margin=20mm --page-size=letter -o 'dist/output.pdf' --no-warn-css
+    prince dist/index.html --page-margin=20mm --page-size=letter -o 'dist/output.pdf' --no-warn-css
     echo "PDF generated successfully!"
-
-    echo "Killing busybox httpd server"
-    pkill busybox
 
 # HMR for building the PDF
 watch PRESET:

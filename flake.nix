@@ -25,7 +25,6 @@
           svelte-env-pkgs.default
           svelte-env-pkgs.vscode
 
-          busybox
           corefonts
           just
           princexml
