@@ -2,7 +2,7 @@ import { exec } from 'child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import prince from 'prince';
 
-import CSS from '../../public/global.css?raw';
+import CSS from '../../public/global.css';
 import HTML from '../app.html?raw';
 
 export async function POST({ request, url }: any) {
@@ -16,7 +16,7 @@ export async function POST({ request, url }: any) {
   let tailwindcss = '';
   if (body.options.use_tailwindcss == true) {
     await exec('bunx tailwindcss -i ./src/app.css -o ./dist/tailwind.css');
-    tailwindcss = (await import('../../dist/tailwind.css?raw')).default;
+    tailwindcss = (await import('../../dist/tailwind.css')).default;
   }
 
   const finalHtml = HTML.replace(
