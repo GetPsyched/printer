@@ -18,7 +18,7 @@
   };
 </script>
 
-<main class="box-border max-w-[8.5in]">
+<main class="box-border mt-12 mx-auto max-w-[8.5in]">
   <hgroup>
     <h1 class="font-bold text-center text-md">{data.title}</h1>
     <p class="font-bold text-center text-md">{data.subtitle}</p>
