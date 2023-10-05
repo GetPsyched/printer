@@ -27,9 +27,9 @@ export async function POST({ request, url }: any) {
   writeFileSync('dist/index.html', finalHtml);
 
   await prince()
-    .cwd('dist')
-    .inputs('index.html')
-    .output('output.pdf')
+    .license('./prince-license.xml')
+    .inputs('dist/index.html')
+    .output('dist/output.pdf')
     .execute();
 
   return new Response(readFileSync('dist/output.pdf'), {
