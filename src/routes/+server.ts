@@ -5,10 +5,12 @@ import prince from 'prince';
 import CSS from '../../public/global.css?raw';
 import HTML from '../app.html?raw';
 
-export async function POST({ request, cookies }: any) {
+export async function POST({ request, url }: any) {
   const body = await request.json();
 
-  const component = await import('../question-paper/page.svelte');
+  const component = await import(
+    `../${url.searchParams.get('target')}/page.svelte`
+  );
   const ssg = component.default.render({ data: body.data });
 
   let tailwindcss = '';
