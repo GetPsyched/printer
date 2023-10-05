@@ -16,10 +16,6 @@
     flex-direction: column;
   }
 
-  a {
-    color: inherit;
-  }
-
   a::before {
     display: inline-block;
     text-align: center;
