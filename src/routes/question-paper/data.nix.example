@@ -22,6 +22,5 @@
       }];
       marks = 5; # usually a number, but can also be a string sum of marks (eg. "2+2.5+2.5")
     }
-    ...
   ];
 }
