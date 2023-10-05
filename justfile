@@ -25,7 +25,7 @@ build PRESET:
     fi
 
     bunx --bun vite build --config vite.config.just.ts --ssr --log-level error
-    (cd dist && bun ssr.js {{PRESET}})
+    (cd dist && bun ssr.js {{PRESET}} "$(cat ./data.json)")
     echo "Distributable files generated successfully!"
 
     prince dist/index.html --page-margin=20mm --page-size=letter -o 'dist/output.pdf' --no-warn-css

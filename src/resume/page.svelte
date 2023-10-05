@@ -1,5 +1,5 @@
 <script lang="ts">
-  import data from '../../dist/data.json';
+  export let data: any;
 
   import Header from '../lib/header.svelte';
   import Skills from './skills.svelte';
