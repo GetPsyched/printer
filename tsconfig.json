@@ -1,8 +1,8 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
+  "extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
-    "checkJs": true,
     "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,

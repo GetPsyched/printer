@@ -14,8 +14,11 @@ import(`../${appName}/page.svelte`)
       : '';
 
     text = text
-      .replace('/* STYLE */', `${ssg.css.code}\n${globalcss}\n${tailwindcss}`)
-      .replace('<!-- HTML -->', ssg.html);
+      .replace(
+        '%sveltekit.head%',
+        `<style>${ssg.css.code}\n${globalcss}\n${tailwindcss}</style>`
+      )
+      .replace('%sveltekit.body%', ssg.html);
     writeFileSync('index.html', text);
   })
   .catch((error) => {

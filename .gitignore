@@ -1,5 +1,6 @@
 /node_modules
 /dist
 vite.config.ts.timestamp-*
+.svelte-kit
 
 /src/*/data.nix

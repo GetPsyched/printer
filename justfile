@@ -24,7 +24,7 @@ build PRESET:
         echo "TailwindCSS generated successfully!"
     fi
 
-    bunx --bun vite build --ssr --log-level error
+    bunx --bun vite build --config vite.config.just.ts --ssr --log-level error
     (cd dist && bun ssr.js {{PRESET}})
     echo "Distributable files generated successfully!"
 
