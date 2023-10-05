@@ -2,4 +2,4 @@
 /dist
 vite.config.ts.timestamp-*
 
-/src/routes/*/data.nix
+/src/*/data.nix

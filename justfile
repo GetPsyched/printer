@@ -5,7 +5,7 @@ default:
 # build the PDF to `dist/output.pdf`
 build PRESET:
     #!/bin/sh -e
-    DATAFILE=./src/routes/{{PRESET}}/data.nix
+    DATAFILE=./src/{{PRESET}}/data.nix
 
     WARNING='\e[0;33mwarning\e[0;37m'
     ERROR='\e[0;31merror\e[0;37m'

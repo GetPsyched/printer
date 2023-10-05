@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Columnar from '../../lib/columnar.svelte';
-  import Markdown from '../../lib/markdown.svelte';
+  import Columnar from '../lib/columnar.svelte';
+  import Markdown from '../lib/markdown.svelte';
   export let title: string;
   export let duration: string;
   export let company: string | undefined;

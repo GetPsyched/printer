@@ -1,5 +1,5 @@
 <script lang="ts">
-  import questionPaper from '../../../dist/data.json';
+  import questionPaper from '../../dist/data.json';
 
   import Information from './information.svelte';
   import Questions from './questions.svelte';

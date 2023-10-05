@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Columnar from '../../lib/columnar.svelte';
+  import Columnar from '../lib/columnar.svelte';
 
   export let school: string;
   export let duration: string;

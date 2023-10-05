@@ -1,7 +1,7 @@
 <script lang="ts">
-  import data from '../../../dist/data.json';
+  import data from '../../dist/data.json';
 
-  import Header from '../../lib/header.svelte';
+  import Header from '../lib/header.svelte';
   import Skills from './skills.svelte';
   import Work from './work.svelte';
   import Achieve from './acheievements.svelte';

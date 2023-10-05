@@ -3,7 +3,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 
 const appName = process.argv.slice(2)[0];
-import(`../routes/${appName}/+page.svelte`)
+import(`../${appName}/page.svelte`)
   .then((app) => {
     let ssg = app.default.render();
     let text = readFileSync('src/app.html').toString();

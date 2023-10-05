@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Markdown from '../../lib/markdown.svelte';
+  import Markdown from '../lib/markdown.svelte';
 
   export let questions: Array<{
     contents: Array<{ text: string; image: string; prompt: string }>;
