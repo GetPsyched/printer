@@ -1,9 +1,38 @@
-export async function POST({ request, cookies }: any) {
-  const { data } = await request.json();
+import { exec } from 'child_process';
+import { mkdirSync, readFileSync, writeFileSync } from 'fs';
+import prince from 'prince';
 
-  return new Response(JSON.stringify(data), {
+import CSS from '../../public/global.css?raw';
+import HTML from '../app.html?raw';
+
+export async function POST({ request, cookies }: any) {
+  const body = await request.json();
+
+  const component = await import('../question-paper/page.svelte');
+  const ssg = component.default.render({ data: body.data });
+
+  let tailwindcss = '';
+  if (body.options.use_tailwindcss == true) {
+    await exec('bunx tailwindcss -i ./src/app.css -o ./dist/tailwind.css');
+    tailwindcss = (await import('../../dist/tailwind.css?raw')).default;
+  }
+
+  const finalHtml = HTML.replace(
+    '%sveltekit.head%',
+    `<style>${CSS}\n${ssg.css.code}\n${tailwindcss}</style>`
+  ).replace('%sveltekit.body%', ssg.html);
+  mkdirSync('dist', { recursive: true });
+  writeFileSync('dist/index.html', finalHtml);
+
+  await prince()
+    .cwd('dist')
+    .inputs('index.html')
+    .output('output.pdf')
+    .execute();
+
+  return new Response(readFileSync('dist/output.pdf'), {
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/pdf',
     },
   });
 }

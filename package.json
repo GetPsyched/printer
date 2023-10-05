@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "dependencies": {
     "@types/node": "^20.7.2",
-    "marked": "^9.0.3"
+    "marked": "^9.0.3",
+    "prince": "^1.9.14"
   },
   "devDependencies": {
     "@sveltejs/kit": "^1.25.1",
