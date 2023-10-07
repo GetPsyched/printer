@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import prince from 'prince';
 
 import TAILWINDCSS from '../../../dist/tailwind.css?raw';
@@ -21,7 +21,6 @@ export async function POST({ request, url }: any) {
     '%sveltekit.head%',
     `<style>${cssFiles.join('\n')}</style>`
   ).replace('%sveltekit.body%', ssg.html);
-  mkdirSync('dist', { recursive: true });
   writeFileSync(`dist/${target}.html`, finalHtml);
 
   await prince()
