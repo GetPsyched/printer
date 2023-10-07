@@ -7,10 +7,9 @@ import HTML from '../../app.html?raw';
 
 export async function POST({ request, url }: any) {
   const body = await request.json();
+  const target = url.searchParams.get('target');
 
-  const component = await import(
-    `../../${url.searchParams.get('target')}/page.svelte`
-  );
+  const component = await import(`../../${target}/page.svelte`);
   const ssg = component.default.render({ data: body.data });
 
   let tailwindcss = '';
@@ -24,11 +23,11 @@ export async function POST({ request, url }: any) {
     `<style>${CSS}\n${ssg.css.code}\n${tailwindcss}</style>`
   ).replace('%sveltekit.body%', ssg.html);
   mkdirSync('dist', { recursive: true });
-  writeFileSync('dist/index.html', finalHtml);
+  writeFileSync(`dist/${target}.html`, finalHtml);
 
   await prince()
     .license('./prince-license.xml')
-    .inputs('dist/index.html')
+    .inputs(`dist/${target}.html`)
     .output('dist/output.pdf')
     .execute();
 

@@ -28,7 +28,7 @@ build PRESET:
     (cd dist && bun ssr.js {{PRESET}} "$(cat ./data.json)")
     echo "Distributable files generated successfully!"
 
-    prince dist/index.html --page-margin=20mm --page-size=letter -o 'dist/output.pdf' --no-warn-css
+    prince dist/{{PRESET}}.html --page-margin=20mm --page-size=letter -o 'dist/output.pdf' --no-warn-css
     echo "PDF generated successfully!"
 
 # HMR for building the PDF

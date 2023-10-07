@@ -2,9 +2,9 @@
 
 import { readFileSync, writeFileSync } from 'fs';
 
-const appName = process.argv.slice(2)[0];
+const target = process.argv.slice(2)[0];
 const dataJSON = process.argv.slice(3)[0];
-import(`../${appName}/page.svelte`)
+import(`../${target}/page.svelte`)
   .then((app) => {
     let ssg = app.default.render({ data: JSON.parse(dataJSON) });
     let text = readFileSync('src/app.html').toString();
@@ -20,11 +20,11 @@ import(`../${appName}/page.svelte`)
         `<style>${ssg.css.code}\n${globalcss}\n${tailwindcss}</style>`
       )
       .replace('%sveltekit.body%', ssg.html);
-    writeFileSync('index.html', text);
+    writeFileSync(`${target}.html`, text);
   })
   .catch((error) => {
     if (error.message.startsWith('Unknown variable dynamic import:')) {
-      console.error(`ERROR: ${appName} is not an available option`);
+      console.error(`ERROR: ${target} is not an available option`);
       return;
     }
     throw error;
