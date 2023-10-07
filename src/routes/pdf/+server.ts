@@ -14,8 +14,7 @@ export async function POST({ request, url }: any) {
 
   let tailwindcss = '';
   if (body.options.use_tailwindcss == true) {
-    execSync('bunx tailwindcss -i ./src/app.css -o ./dist/tailwind.css');
-    tailwindcss = readFileSync('dist/tailwind.css');
+    tailwindcss = execSync('bunx tailwindcss -i ./src/app.css');
   }
 
   const finalHtml = HTML.replace(
