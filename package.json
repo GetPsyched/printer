@@ -17,10 +17,11 @@
     "vite": "^4.4.2"
   },
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "start": "vite build && clear && vite preview"
+    "css": "bunx tailwindcss -i ./src/app.css -o ./dist/tailwind.css",
+    "dev": "bun run css && vite dev",
+    "build": "bun run css && vite build",
+    "preview": "bun run css && vite preview",
+    "start": "bun run css && vite build && clear && vite preview"
   },
   "type": "module"
 }

@@ -1,7 +1,7 @@
-import { execSync } from 'child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import prince from 'prince';
 
+import TAILWINDCSS from '../../../dist/tailwind.css?raw';
 import CSS from '../../../public/global.css?raw';
 import HTML from '../../app.html?raw';
 
@@ -12,14 +12,14 @@ export async function POST({ request, url }: any) {
   const component = await import(`../../${target}/page.svelte`);
   const ssg = component.default.render({ data: body.data });
 
-  let tailwindcss = '';
+  let cssFiles = [CSS, ssg.css.code];
   if (body.options.use_tailwindcss == true) {
-    tailwindcss = execSync('bunx tailwindcss -i ./src/app.css');
+    cssFiles.push(TAILWINDCSS);
   }
 
   const finalHtml = HTML.replace(
     '%sveltekit.head%',
-    `<style>${CSS}\n${ssg.css.code}\n${tailwindcss}</style>`
+    `<style>${cssFiles.join('\n')}</style>`
   ).replace('%sveltekit.body%', ssg.html);
   mkdirSync('dist', { recursive: true });
   writeFileSync(`dist/${target}.html`, finalHtml);
