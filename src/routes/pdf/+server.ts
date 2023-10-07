@@ -1,4 +1,4 @@
-import { exec } from 'child_process';
+import { execSync } from 'child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import prince from 'prince';
 
@@ -14,7 +14,7 @@ export async function POST({ request, url }: any) {
 
   let tailwindcss = '';
   if (body.options.use_tailwindcss == true) {
-    await exec('bunx tailwindcss -i ./src/app.css -o ./dist/tailwind.css');
+    execSync('bunx tailwindcss -i ./src/app.css -o ./dist/tailwind.css');
     tailwindcss = readFileSync('dist/tailwind.css');
   }
 
