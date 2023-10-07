@@ -25,6 +25,7 @@
             {#if content.image}
               <br />
               <img
+                alt="some image that didn't load."
                 class="mx-auto"
                 height="384"
                 width="384"
