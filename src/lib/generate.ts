@@ -36,4 +36,6 @@ export async function generatePDF(
     .inputs(`dist/${target}.html`)
     .output('dist/output.pdf')
     .execute();
+
+  return readFileSync('dist/output.pdf');
 }
