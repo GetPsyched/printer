@@ -54,6 +54,7 @@ See [Usage](#usage) for details on setting up the project and other details.
          "data": {}
        }
        ```
+   - `POST <url>/html?target=<preset>`: The rules are the same as the PDF endpoint.
 
 ## Acknowledgements
 
