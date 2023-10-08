@@ -23,7 +23,7 @@
     "dev": "bun run css && vite dev",
     "build": "bun run css && vite build",
     "preview": "bun run css && vite preview",
-    "start": "bun run css && vite build && clear && vite preview"
+    "start": "node build build/index.js"
   },
   "type": "module"
 }
