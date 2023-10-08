@@ -39,7 +39,7 @@
             {/if}
           {/each}
         </td>
-        <td class="align-top px-3 py-2">{question.marks}</td>
+        <td class="align-top px-3 py-2 text-center">{question.marks}</td>
       </tr>
     {/each}
   </tbody>
