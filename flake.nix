@@ -27,9 +27,13 @@
 
           corefonts
           just
+          nodejs
           princexml
           watchexec
         ];
+        shellHook = ''
+          export PATH="$PWD/node_modules/.bin:$PATH";
+        '';
       };
     };
 }

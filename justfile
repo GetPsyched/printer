@@ -25,12 +25,12 @@ build PRESET:
     echo "JSON file generated successfully!"
 
     if [ $USE_TAILWINDCSS ]; then
-        bunx tailwindcss -i ./src/app.css -o ./dist/tailwind.css
+        npx tailwindcss -i ./src/app.css -o ./dist/tailwind.css
         echo "TailwindCSS generated successfully!"
     fi
 
-    bunx --bun vite build --config vite.config.just.ts --ssr --log-level error
-    bun dist/ssr.js {{PRESET}} "$(cat ./dist/data.json)"
+    vite build --config vite.config.just.ts --ssr --log-level error
+    node dist/ssr.js {{PRESET}} "$(cat ./dist/data.json)"
     echo "Distributable files generated successfully!"
 
     prince dist/{{PRESET}}.html --page-margin=20mm --page-size=letter -o 'dist/output.pdf' --no-warn-css

@@ -19,10 +19,10 @@
     "vite": "^4.4.2"
   },
   "scripts": {
-    "css": "bunx tailwindcss -i ./src/app.css -o ./dist/tailwind.css",
-    "dev": "bun run css && vite dev",
-    "build": "bun run css && vite build",
-    "preview": "bun run css && vite preview",
+    "css": "npx tailwindcss -i ./src/app.css -o ./dist/tailwind.css",
+    "dev": "npm run css && vite dev",
+    "build": "npm run css && vite build",
+    "preview": "npm run css && vite preview",
     "start": "node build build/index.js"
   },
   "type": "module"
