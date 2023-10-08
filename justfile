@@ -10,6 +10,11 @@ build PRESET:
     WARNING='\e[0;33mwarning\e[0;37m'
     ERROR='\e[0;31merror\e[0;37m'
 
+    if [ ! -d "./src/{{PRESET}}" ]; then
+        echo -e "${ERROR}: The build preset '{{PRESET}}' doesn't exist"
+        exit 1
+    fi
+
     if [ ! -f $DATAFILE ]; then
         export DATAFILE=$DATAFILE.example
         echo -e "${WARNING}: 'data.nix' not found! Using 'data.nix.example'"
