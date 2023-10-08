@@ -1,5 +1,3 @@
-import prince from 'prince';
-
 import { generatePDF } from '../../lib/generate';
 
 export async function POST({ request, url }: any) {
