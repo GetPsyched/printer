@@ -1,0 +1,18 @@
+# https://nixpacks.com/docs/configuration/file
+
+[variables]
+    pname = 'prince'
+    full_name = 'prince-15.1-linux-generic-x86_64'
+
+[phases.setup]
+  nixPkgs = ['...', 'corefonts', 'fontconfig', 'glibc']
+
+[phases.princexml]
+    dependsOn = ['setup']
+    cmds = [
+        'curl -fsSLo ${pname}.tar.gz "https://www.princexml.com/download/${full_name}.tar.gz"',
+        'tar -zxvf ${pname}.tar.gz ${full_name}',
+        'chmod +x ${full_name}/install.sh',
+        './${full_name}/install.sh /bin',
+        'ls /bin'
+    ]
