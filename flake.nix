@@ -2,7 +2,7 @@
   description = "printer go bzzz bzzzzzz pzzz";
 
   inputs = {
-    svelte-env.url = "https://flakehub.com/f/GetPsyched/svelte-env/0.x.x.tar.gz";
+    svelte-env.url = "github:GetPsyched/nix-starter-flakes?dir=svelte";
     svelte-env.inputs.nixpkgs.follows = "nixpkgs";
   };
 
