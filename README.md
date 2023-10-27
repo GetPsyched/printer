@@ -31,7 +31,7 @@ See [Usage](#usage) for details on setting up the project and other details.
 
 1. Clone this repository.
 2. Run `nix develop` within this project's directory to install our build dependencies.
-3. Run `bun install` to install our package dependencies.
+3. Run `npm install` to install our package dependencies.
 4. Rename `src/*/data.nix.example` to `src/*/data.nix` and populate it with your details.
 
 ### Using the CLI
@@ -43,7 +43,7 @@ See [Usage](#usage) for details on setting up the project and other details.
 
 ### Using the API
 
-1. Run `bun run dev` for local hosting and `bun run start` for production hosting.
+1. Run `npm run dev` for local hosting and `npm run start` for production hosting.
 2. The API routes are as follows:
    - `POST <url>/pdf?target=<preset>`:
      - `preset` must match the exact folder name that you have stored for your preset.
