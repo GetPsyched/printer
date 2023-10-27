@@ -13,23 +13,6 @@ Style your documents deterministically.
 
 This project isn't meant to be used out of the box; instead, this project provides an infrastructure for compiling custom data and pre-defined presets into HTML/PDF conveniently. The idea is that you define the presets and data formats and utilise the conversion structure provided by this project.
 
-## Developing your own presets
-
-So, here's what you need to know to develop your own presets:
-
-- The directory where you will be creating your preset(s) is `src/<preset>`.
-- Within this directory, you must create a `page.svelte` file. This is the entry point of your preset. From here, you can either expand to multiple `.svelte` files via imports or stick to one, it's up to you.
-  - For importing the data into your `page.svelte` file, export a variable named `data` (see other presets for reference)
-  - If you want to use TailwindCSS for styling, please see how to enable compiling TailwindCSS [below](#usage).
-- Once you've created your preset, you have 2 options to feed it data.
-
-  1. Using the CLI
-  2. By running the server and calling the relevant API endpoints.
-
-  I recommend that you use option 1 for non-automated use cases, and option 2 for automated ones.
-
-See [Usage](#usage) for details on setting up the project and other details.
-
 ## Usage
 
 1. Clone this repository.
@@ -61,6 +44,21 @@ See [Usage](#usage) for details on setting up the project and other details.
        }
        ```
    - `POST <url>/html?target=<preset>`: The rules are the same as the PDF endpoint.
+
+## Developing your own presets
+
+Setup the project? Good. Here's what you need to know to kick-start developing your own presets:
+
+- The directory where you will be creating your preset(s) is `src/<preset>`.
+- Within this directory, you must create a `page.svelte` file. This is the entry point of your preset. From here, you can either expand to multiple `.svelte` files via imports or stick to one, it's up to you.
+  - For importing the data into your `page.svelte` file, export a variable named `data` (see other presets for reference)
+  - If you want to use TailwindCSS for styling, please see how to enable compiling TailwindCSS [below](#usage).
+- Once you've created your preset, you have 2 options to feed it data.
+
+  1. Using the CLI
+  2. By running the server and calling the relevant API endpoints.
+
+  I recommend that you use option 1 for non-automated use cases, and option 2 for automated ones.
 
 ## Acknowledgements
 
