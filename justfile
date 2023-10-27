@@ -3,15 +3,15 @@ default:
     @just --list --unsorted
 
 # build the PDF to `dist/output.pdf`
-build PRESET:
+build DESIGN:
     #!/bin/sh -e
-    DATAFILE=./src/{{PRESET}}/data.nix
+    DATAFILE=./src/{{DESIGN}}/data.nix
 
     WARNING='\e[0;33mwarning\e[0;37m'
     ERROR='\e[0;31merror\e[0;37m'
 
-    if [ ! -d "./src/{{PRESET}}" ]; then
-        echo -e "${ERROR}: The build preset '{{PRESET}}' doesn't exist"
+    if [ ! -d "./src/{{DESIGN}}" ]; then
+        echo -e "${ERROR}: The design '{{DESIGN}}' doesn't exist"
         exit 1
     fi
 
@@ -30,12 +30,12 @@ build PRESET:
     fi
 
     vite build --config vite.config.just.ts --ssr --log-level error
-    node dist/ssr.js {{PRESET}} "$(cat ./dist/data.json)"
+    node dist/ssr.js {{DESIGN}} "$(cat ./dist/data.json)"
     echo "Distributable files generated successfully!"
 
-    prince dist/{{PRESET}}.html --page-margin=20mm --page-size=letter -o 'dist/output.pdf' --no-warn-css
+    prince dist/{{DESIGN}}.html --page-margin=20mm --page-size=letter -o 'dist/output.pdf' --no-warn-css
     echo "PDF generated successfully!"
 
 # HMR for building the PDF
-watch PRESET:
-    watchexec --clear --restart --watch src --no-vcs-ignore 'just build {{PRESET}}'
+watch DESIGN:
+    watchexec --clear --restart --watch src --no-vcs-ignore 'just build {{DESIGN}}'
