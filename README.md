@@ -18,14 +18,14 @@ This project isn't meant to be used out of the box; instead, this project provid
 1. Clone this repository.
 2. Run `nix develop` within this project's directory to install our build dependencies.
 3. Run `npm install` to install our package dependencies.
-4. Rename `src/*/data.nix.example` to `src/*/data.nix` and populate it with your details.
 
 ### Using the CLI
 
-1. Run `just` to see the available command options.
+1. Rename `src/*/data.nix.example` to `src/*/data.nix` and populate it with the necessary information.
+2. Run `just` to see the available command options.
    - `build <design>`: Build the PDF choosing a design.
    - `watch <design>`: Watch the build. As you change files, the PDF will regenerate automatically.
-2. View your generated PDF at `dist/output.pdf`.
+3. View your generated PDF at `dist/output.pdf`.
 
 > **Note**
 > To use TailwindCSS, set `USE_TAILWINDCSS` to `1`.
