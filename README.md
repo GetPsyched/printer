@@ -1,13 +1,13 @@
 # printer
 
-A printer that eats Nix/JSON, poops out HTML, and births a PDF.
+Style your documents deterministically.
 
 ## Features
 
-- Decouple your data and styling.
-- Define multiple presets for the same data.
-- Effortlessly mass produce builds for similar data.
-- Version control over styling and data file formats.
+- **Fearless styling:** Style once and forget about it ever breaking.
+- **Version control:** Supercharge your documents with Git; know what changed when and why!
+- **Mass production:** Automate building repetitive documents using [the JSON API](#using-the-api).
+- **Presets (WIP):** Same you, different look? Create new styles without losing old ones.
 
 ## Purpose
 
