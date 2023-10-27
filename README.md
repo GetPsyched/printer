@@ -13,6 +13,8 @@ Style your documents deterministically.
 
 This project isn't meant to be used out of the box; instead, this project provides an infrastructure for compiling custom data and pre-defined presets into HTML/PDF conveniently. The idea is that you define the presets and data formats and utilise the conversion structure provided by this project.
 
+## Developing your own presets
+
 So, here's what you need to know to develop your own presets:
 
 - The directory where you will be creating your preset(s) is `src/<preset>`.
