@@ -18,6 +18,7 @@ So, here's what you need to know to develop your own presets:
 - The directory where you will be creating your preset(s) is `src/<preset>`.
 - Within this directory, you must create a `page.svelte` file. This is the entry point of your preset. From here, you can either expand to multiple `.svelte` files via imports or stick to one, it's up to you.
   - For importing the data into your `page.svelte` file, export a variable named `data` (see other presets for reference)
+  - If you want to use TailwindCSS for styling, please see how to enable compiling TailwindCSS [below](#usage).
 - Once you've created your preset, you have 2 options to feed it data.
 
   1. Using the CLI
@@ -40,6 +41,9 @@ See [Usage](#usage) for details on setting up the project and other details.
    - `build <preset>`: Build the PDF choosing a preset.
    - `watch <preset>`: Watch the build. As you change files, the PDF will regenerate automatically.
 2. View your generated PDF at `dist/output.pdf`.
+
+> **Note**
+> To use TailwindCSS, set `USE_TAILWINDCSS` to `1`.
 
 ### Using the API
 
