@@ -27,11 +27,11 @@
       },
       "locked": {
         "dir": "svelte",
-        "lastModified": 1698415391,
-        "narHash": "sha256-qOgR4IBWw7eslrpaurs7DGNElMuXKX/wZVMIhSSU5lk=",
+        "lastModified": 1698660848,
+        "narHash": "sha256-RomqCZlVr9TM80joawczSLzVgcie8CDbyozevC1Mx7Q=",
         "owner": "GetPsyched",
         "repo": "nix-starter-flakes",
-        "rev": "a301d6269c611752b340a8c3371942c074e062c0",
+        "rev": "618eb19a455d067ca2590d0b819f3b877df32309",
         "type": "github"
       },
       "original": {
