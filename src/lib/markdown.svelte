@@ -37,6 +37,6 @@
 
   div :global(th),
   div :global(td) {
-    padding: 0.25rem;
+    padding: 0.25rem 0.5rem;
   }
 </style>
