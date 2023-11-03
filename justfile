@@ -35,8 +35,8 @@ build DESIGN:
 
 # HMR for building the PDF
 watch DESIGN:
-    watchexec "just build {{DESIGN}}" \
-        --clear --restart --no-vcs-ignore \
+    watchexec --clear --restart --no-vcs-ignore \
         --watch "src/{{DESIGN}}" \
         --watch $INPUT_FILE_PATH \
-        --watch justfile
+        --watch justfile \
+        "just build {{DESIGN}}"
