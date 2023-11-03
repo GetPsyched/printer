@@ -8,10 +8,23 @@
 </div>
 
 <style>
-  div :global(ul) {
+  div :global(ul),
+  div :global(ol) {
     margin: 0;
     margin-top: 4px;
     padding-left: 15px;
+  }
+
+  div :global(li) {
+    margin-left: 15px;
+  }
+
+  div :global(ul > li) {
+    list-style-type: disc;
+  }
+
+  div :global(ol > li) {
+    list-style-type: decimal;
   }
 
   div :global(table),
