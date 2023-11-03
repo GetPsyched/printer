@@ -7,7 +7,7 @@
   }>;
 </script>
 
-<table>
+<table class="w-full">
   <tbody>
     {#each questions as question, number}
       <tr>
