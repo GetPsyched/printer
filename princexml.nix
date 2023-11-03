@@ -2,10 +2,10 @@
 
 stdenv.mkDerivation rec {
   pname = "princexml";
-  version = "15.1";
+  version = "15.2";
   src = fetchurl {
     url = "https://www.princexml.com/download/prince-${version}-linux-generic-x86_64.tar.gz";
-    hash = "sha256-rm0GeKPa8iDXBhW52GNcja09Qb+aYUtvFaxZUFHEOTw=";
+    hash = "sha256-EMc/m8GZJNa6DgRZ0X0jJS6oNOitmSz0g6SfrvHpz7o=";
   };
 
   nativeBuildInputs = [ autoPatchelfHook ];
