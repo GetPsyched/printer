@@ -11,7 +11,7 @@
   <tbody>
     {#each questions as question, number}
       <tr>
-        <td class="align-top py-2 text-center">Q{number + 1}.</td>
+        <td class="align-top px-3 py-2">Q{number + 1}.</td>
         <td class="p-2">
           {#each question.contents as content, index}
             {#if index > 0}
