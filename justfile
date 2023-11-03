@@ -5,7 +5,9 @@ default:
 # build the PDF to `dist/output.pdf`
 build DESIGN:
     #!/bin/sh -e
-    DATAFILE=./src/{{DESIGN}}/data.nix
+    if [ ! $INPUT_FILE_PATH ]; then
+        INPUT_FILE_PATH="./src/{{DESIGN}}/data.nix"
+    fi
 
     WARNING='\e[0;33mwarning\e[0;37m'
     ERROR='\e[0;31merror\e[0;37m'
@@ -15,13 +17,8 @@ build DESIGN:
         exit 1
     fi
 
-    if [ ! -f $DATAFILE ]; then
-        export DATAFILE=$DATAFILE.example
-        echo -e "${WARNING}: 'data.nix' not found! Using 'data.nix.example'"
-    fi
-
     mkdir -p dist
-    nix eval --json --file $DATAFILE > dist/data.json
+    nix eval --json --file $INPUT_FILE_PATH > dist/data.json
     echo "JSON file generated successfully!"
 
     if [ $USE_TAILWINDCSS ]; then

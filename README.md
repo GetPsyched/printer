@@ -29,6 +29,7 @@ This project isn't meant to be used out of the box; instead, this project provid
 
 > **Note**
 > To use TailwindCSS, set `USE_TAILWINDCSS` to `1`.
+> To use a different file location, set `INPUT_FILE_PATH`.
 
 ### Using the API
 
