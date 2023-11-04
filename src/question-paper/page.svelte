@@ -12,11 +12,19 @@
     pages: number;
     time: string;
     note: string;
+    attempt_any: number;
     questions: Array<{
       contents: Array<{ text: string; image: string; prompt: string }>;
       marks: string | number;
     }>;
   };
+
+  if (data.attempt_any) {
+    if (data.note) {
+      console.warn('Existing note is being overwritten by `attempt-any`');
+    }
+    data.note = `Attempt any ${data.attempt_any} questions.`;
+  }
 </script>
 
 <main class="box-border mt-12 mx-auto max-w-[8.5in]">

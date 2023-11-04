@@ -9,6 +9,7 @@
     pages: number;
     time: string;
     note: string;
+    attempt_any: number;
     questions: Array<{
       contents: Array<{ text: string; image: string; prompt: string }>;
       marks: string | number;
@@ -48,10 +49,13 @@
       <td><strong>Course Code:</strong> {questionPaper.course.code}</td>
       <td>
         <strong>Maximum Marks:</strong>
-        {questionPaper.questions.reduce(
-          (accumulator, { marks }) => accumulator + evalMarks(marks),
-          0
-        )}
+        {questionPaper.attempt_any
+          ? evalMarks(questionPaper.questions[0].marks) *
+            questionPaper.attempt_any
+          : questionPaper.questions.reduce(
+              (accumulator, { marks }) => accumulator + evalMarks(marks),
+              0
+            )}
       </td>
     </tr>
   </tbody>
