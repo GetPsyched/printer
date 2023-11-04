@@ -11,6 +11,7 @@
     semester: number;
     pages: number;
     time: string;
+    note: string;
     questions: Array<{
       contents: Array<{ text: string; image: string; prompt: string }>;
       marks: string | number;
@@ -27,6 +28,10 @@
   <br />
   <Information questionPaper={data} />
   <br />
+
+  {#if data.note}
+    <p><strong>Note:</strong> {data.note}</p>
+  {/if}
 
   <br />
   <Questions questions={data.questions} />

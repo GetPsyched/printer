@@ -8,6 +8,7 @@
     semester: number;
     pages: number;
     time: string;
+    note: string;
     questions: Array<{
       contents: Array<{ text: string; image: string; prompt: string }>;
       marks: string | number;
