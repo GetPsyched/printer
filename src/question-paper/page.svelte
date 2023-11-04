@@ -12,18 +12,18 @@
     pages: number;
     time: string;
     note: string;
-    attempt_any: number;
+    'attempt-any': number;
     questions: Array<{
       contents: Array<{ text: string; image: string; prompt: string }>;
       marks: string | number;
     }>;
   };
 
-  if (data.attempt_any) {
+  if (data['attempt-any']) {
     if (data.note) {
       console.warn('Existing note is being overwritten by `attempt-any`');
     }
-    data.note = `Attempt any ${data.attempt_any} questions.`;
+    data.note = `Attempt any ${data['attempt-any']} questions.`;
   }
 </script>
 
