@@ -15,8 +15,10 @@
     }>;
   };
 
-  const evalMarks = (marksString: string) => {
-    const marksArray = marksString.split('+');
+  const evalMarks = (marks: string | number) => {
+    if (typeof marks == 'number') return marks;
+
+    const marksArray = marks.split('+');
     return marksArray
       .map((marks) => Number(marks.trim()))
       .reduce((accumulator, marks) => accumulator + marks);
@@ -47,8 +49,7 @@
       <td>
         <strong>Maximum Marks:</strong>
         {questionPaper.questions.reduce(
-          (accumulator, { marks }) =>
-            accumulator + (typeof marks == 'string' ? evalMarks(marks) : marks),
+          (accumulator, { marks }) => accumulator + evalMarks(marks),
           0
         )}
       </td>
