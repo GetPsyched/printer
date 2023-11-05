@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { marked } from 'marked';
+
   import Markdown from '../lib/markdown.svelte';
 
   export let questions: Array<
@@ -49,7 +51,9 @@
               {/if}
 
               {#if subquestion.prompt}
-                <p class="text-right">[ {subquestion.prompt} ]</p>
+                <p class="text-right">
+                  [ {@html marked.parseInline(subquestion.prompt)} ]
+                </p>
               {/if}
             </td>
 
