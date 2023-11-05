@@ -10,16 +10,21 @@
 <table class="w-full">
   <tbody>
     {#each questions as question, number}
-      <tr>
-        <td class="align-top px-3 py-2">Q{number + 1}.</td>
-        <td class="p-2">
-          {#each question.contents as content, index}
-            {#if index > 0}
-              <br />
-              <p class="text-center">OR</p>
-              <br />
-            {/if}
+      {#each question.contents as content, index}
+        {#if index > 0}
+          <tr>
+            <td />
+            <td><p class="text-center">OR</p></td>
+            <td />
+          </tr>
+        {/if}
 
+        <tr>
+          <td class="align-top px-3 py-2">
+            Q{number + 1}.
+          </td>
+
+          <td class="p-2">
             <Markdown source={content.text} />
 
             {#if content.image}
@@ -37,10 +42,13 @@
             {#if content.prompt}
               <p class="text-right">[ {content.prompt} ]</p>
             {/if}
-          {/each}
-        </td>
-        <td class="align-top px-3 py-2 text-center">{question.marks}</td>
-      </tr>
+          </td>
+
+          <td class="align-top px-3 py-2 text-center">
+            {question.marks}
+          </td>
+        </tr>
+      {/each}
     {/each}
   </tbody>
 </table>
