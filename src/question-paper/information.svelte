@@ -57,7 +57,8 @@
         <strong>Maximum Marks:</strong>
         {questionPaper['attempt-any']
           ? questionPaper.questions[0][0].reduce(
-              (accumulator, { marks }) => accumulator + evalMarks(marks)
+              (accumulator, { marks }) => accumulator + evalMarks(marks),
+              0
             ) * questionPaper['attempt-any']
           : questionPaper.questions.reduce(
               (accumulator, or_wrapper) =>
