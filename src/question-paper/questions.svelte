@@ -20,11 +20,11 @@
         {/if}
 
         <tr>
-          <td class="align-top px-3 py-2">
+          <td class="align-top">
             Q{number + 1}.
           </td>
 
-          <td class="p-2">
+          <td>
             <Markdown source={content.text} />
 
             {#if content.image}
@@ -44,7 +44,7 @@
             {/if}
           </td>
 
-          <td class="align-top px-3 py-2 text-center">
+          <td class="align-top text-center">
             {question.marks}
           </td>
         </tr>
@@ -57,5 +57,6 @@
   table,
   td {
     border: 1px black solid;
+    padding: 0.5rem 0.75rem;
   }
 </style>
