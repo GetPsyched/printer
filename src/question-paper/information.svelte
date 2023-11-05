@@ -10,10 +10,16 @@
     time: string;
     note: string;
     'attempt-any': number;
-    questions: Array<{
-      contents: Array<{ text: string; image: string; prompt: string }>;
-      marks: string | number;
-    }>;
+    questions: Array<
+      Array<
+        Array<{
+          text: string;
+          image: string;
+          prompt: string;
+          marks: string | number;
+        }>
+      >
+    >;
   };
 
   const evalMarks = (marks: string | number) => {
@@ -50,10 +56,21 @@
       <td>
         <strong>Maximum Marks:</strong>
         {questionPaper['attempt-any']
-          ? evalMarks(questionPaper.questions[0].marks) *
-            questionPaper['attempt-any']
+          ? questionPaper.questions[0][0].reduce(
+              (accumulator, { marks }) => accumulator + evalMarks(marks)
+            ) * questionPaper['attempt-any']
           : questionPaper.questions.reduce(
-              (accumulator, { marks }) => accumulator + evalMarks(marks),
+              (accumulator, or_wrapper) =>
+                accumulator +
+                or_wrapper.reduce(
+                  (_, subquestions) =>
+                    subquestions.reduce(
+                      (accumulator, { marks }) =>
+                        accumulator + evalMarks(marks),
+                      0
+                    ),
+                  0
+                ),
               0
             )}
       </td>
