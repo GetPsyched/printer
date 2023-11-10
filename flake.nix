@@ -2,11 +2,11 @@
   description = "printer go bzzz bzzzzzz pzzz";
 
   inputs = {
-    svelte-env.url = "github:GetPsyched/nix-starter-flakes?dir=svelte";
-    svelte-env.inputs.nixpkgs.follows = "nixpkgs";
+    flakey-devShells.url = "https://flakehub.com/f/GetPsyched/not-so-flakey-devshells/0.x.x.tar.gz";
+    flakey-devShells.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, svelte-env, ... }:
+  outputs = inputs@{ nixpkgs, flakey-devShells, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -15,15 +15,15 @@
           "corefonts"
         ];
       };
-      svelte-env-pkgs = svelte-env.outputs.packages.${system};
+      flakey-devShell-pkgs = flakey-devShells.outputs.packages.${system};
 
       princexml = pkgs.callPackage ./princexml.nix { };
     in
     {
       devShells.${system}.default = pkgs.mkShell {
         nativeBuildInputs = with pkgs; [
-          svelte-env-pkgs.default
-          svelte-env-pkgs.vscode
+          (flakey-devShell-pkgs.default.override { environments = [ "nix" "svelte" ]; })
+          (flakey-devShell-pkgs.vscodium.override { environments = [ "nix" "svelte" ]; })
 
           corefonts
           just
