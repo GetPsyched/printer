@@ -35,6 +35,11 @@ build DESIGN:
 
 # HMR for building the PDF
 watch DESIGN:
+    #!/bin/sh -e
+    if [ ! $INPUT_FILE_PATH ]; then
+        INPUT_FILE_PATH="./src/{{DESIGN}}/data.nix"
+    fi
+
     watchexec --clear --restart --no-vcs-ignore \
         --watch "src/lib" \
         --watch "src/{{DESIGN}}" \
